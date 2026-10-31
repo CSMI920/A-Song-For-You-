@@ -1,6 +1,13 @@
-/* Place CSS styles here */
+body{
+    background-color: #f5f1e9;
+    font-family: "josefin-slab", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #120600;
+}
 
-/* Images */
+
+/* Index Css */
 .Doxie1 {
     max-width: 60%;
     position: absolute;
@@ -8,69 +15,94 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    padding: 0;
-}
-
+    padding: 0;}
 .lightcloud {
     position: absolute;
     top: 180px;
     left: 57%;
     transform: translateX(-55%);
     max-width: 80%;
-    z-index: 3;
-}
-
+    z-index: 3;}
 .darkcloud {
     position: absolute;
     top: 0px;
     left: 54%;
     transform: translateX(-54%);
     max-width: 80%;
-    z-index: 1;
-}
-
-/* Main wrapper */
-
+    z-index: 1;}
+    
 .title-stack {
     position: relative;
     width: 100%;
     max-width: 1000px;
     height: 500px;
-    margin: 0 auto;
-}
+    margin: 0 auto;}
 
-
-/* Text */
-.red-box-left {
-    font-size: 40px;
+.IntroTextLeft {
+    font-size: clamp(18px, 3vw, 40px);
     position: absolute;
     top: 170px;
-    left: 28%;
-    z-index: 1;
-
-}
-
-.red-box-right {
-    font-size: 40px;
+    left: 5%;
+    width: 25%;
+    text-align: right;
+    z-index: 1;}
+.IntroTextRight {
+    font-size: clamp(18px, 3vw, 40px);
     position: absolute;
     top: 170px;
-    right: 28%;
-    z-index: 1;
+    right: 5%;
+    width: 25%;
+    text-align: left;
+    z-index: 1;}
 
-}
-
-/* Button */
 .start-story {
     position: absolute;
     top: 500px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
-     opacity: 0;
+    opacity: 0;
     animation: buttonFadeIn 1.5s ease forwards;
-    animation-delay: 3s;
-}
+    animation-delay: 3s;}
 
+
+
+/* StoryLine Css */
+.row{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0 100px;
+    gap: 88px;
+    margin: auto;}
+.display-contents{
+    display: contents;}
+.img2{
+    max-width: 40%;}
+.dialouge {
+    text-align: center;
+    margin: 50px;
+    font-size: 25px;
+}
+.resize {
+    font-size: 32px;
+    padding: 18px 0;
+    text-align: center;
+}
+.cursive {
+    color: #832727;
+    font-family: "allegretto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 4px 0 -14px 0px;
+}
+center {
+    display: flex;
+    justify-content: center;
+}
+s
+
+/* Animations */
 @keyframes fadeInUp {
     0% {
         translate: 0 100%;
@@ -79,12 +111,9 @@
     100% {
         translate: 0 0;
         opacity: 1;
-    }
-}
-
+    }}
 .fadeInUp-animation {
-    animation: 1.5s fadeInUp forwards;
-}
+    animation: 1.5s fadeInUp forwards;}
 
 
 @keyframes fadeDown {
@@ -95,12 +124,9 @@
     100% {
         translate: 0 0;
         opacity: 1;
-    }
-}
-
+    }}
 .fadeDown-animation {
-    animation: 1.5s fadeDown forwards;
-}
+    animation: 1.5s fadeDown forwards;}
 
 
 @keyframes fadeInLeft {
@@ -111,8 +137,10 @@
     to {
         opacity: 1;
         translate: 0 0;
-    }
-}
+    }}
+.fadeInLeft-animation {
+    animation: 2s fadeInLeft ease forwards;}
+
 
 @keyframes fadeInRight {
     from {
@@ -122,16 +150,9 @@
     to {
         opacity: 1;
         translate: 0 0;
-    }
-}
-
-.fadeInLeft-animation {
-    animation: 2s fadeInLeft ease forwards;
-}
-
+    }}
 .fadeInRight-animation {
-    animation: 2s fadeInRight ease forwards;
-}
+    animation: 2s fadeInRight ease forwards;}
 
 @keyframes buttonFadeIn {
     from {
