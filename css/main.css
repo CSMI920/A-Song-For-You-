@@ -55,9 +55,9 @@ body{
     text-align: left;
     z-index: 1;}
 
-.start-story {
+.start-button {
     position: absolute;
-    top: 500px;
+    top: 820px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
@@ -77,30 +77,51 @@ body{
     margin: auto;}
 .display-contents{
     display: contents;}
+
 .img2{
-    max-width: 40%;}
+    max-width: 50%;}
 .dialouge {
     text-align: center;
     margin: 50px;
-    font-size: 25px;
-}
+    font-size: 25px;}
+
 .resize {
     font-size: 32px;
     padding: 18px 0;
-    text-align: center;
-}
+    text-align: center;}
 .cursive {
     color: #832727;
     font-family: "allegretto", sans-serif;
     font-weight: 400;
     font-style: normal;
-    margin: 4px 0 -14px 0px;
-}
-center {
+    margin: 4px 0 -14px 0px;}
+
+.storyline-button {
     display: flex;
     justify-content: center;
-}
-s
+
+    opacity: 0;
+    animation: buttonFadeIn 1.5s ease forwards;
+    animation-delay: 10s;}
+
+
+/* SongChoice Css */
+.songchoice-wrapper{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 50px 0;}
+.slideshow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;}
+
+.img3{
+    max-width: 40%;}
+
+/* TheDate Css */
+
 
 /* Animations */
 @keyframes fadeInUp {
@@ -160,5 +181,4 @@ s
     }
     to {
         opacity: 1;
-    }
-}
+    }}
