@@ -1,5 +1,68 @@
-// JS scripts placed here
-// Typewriter Effect 
+const songs = [
+  {
+    image: "./img/blue.png",
+    song: "./song/Song1.mp3"
+  },
+  {
+    image: "./img/green.png",
+    song: "./song/Song2.mp3"
+  },
+  {
+    image: "./img/red.png",
+    song: "./song/Song3.mp3"
+  }
+];
+
+let currentIndex = 0;
+
+const sliderImage = document.getElementById("slider-image");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+const chooseBtn = document.getElementById("choose-btn");
+
+// Only run on the song choice page
+if (sliderImage && prevBtn && nextBtn && chooseBtn) {
+
+  function updateImage() {
+    sliderImage.src = songs[currentIndex].image;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % songs.length;
+    updateImage();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + songs.length) % songs.length;
+    updateImage();
+  });
+
+  chooseBtn.addEventListener("click", () => {
+    localStorage.setItem("selectedSong", songs[currentIndex].song);
+
+    window.location.href = "./thedate.html";
+  });
+}
+
+// PLAY SELECTED SONG
+
+const audioPlayer = document.getElementById("selected-song");
+
+if (audioPlayer) {
+  const selectedSong = localStorage.getItem("selectedSong");
+
+  if (selectedSong) {
+    audioPlayer.src = selectedSong;
+
+    audioPlayer.play().catch(error => {
+      console.log("Autoplay was blocked:", error);
+    });
+  }
+}
+
+
+// Typewriter Effect
+if (document.getElementById("title")) {
 const dialogue = [
   {
     id: "title",
@@ -51,6 +114,5 @@ function typeWriter() {
     charIndex = 0;
     setTimeout(typeWriter, 300);}}
 
-typeWriter();
-
-
+  typeWriter();
+  }
