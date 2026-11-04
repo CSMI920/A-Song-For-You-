@@ -12,7 +12,6 @@ const songs = [
     song: "./song/Song3.mp3"
   }
 ];
-
 let currentIndex = 0;
 
 const sliderImage = document.getElementById("slider-image");
@@ -20,7 +19,6 @@ const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
 const chooseBtn = document.getElementById("choose-btn");
 
-// Only run on the song choice page
 if (sliderImage && prevBtn && nextBtn && chooseBtn) {
 
   function updateImage() {
@@ -45,9 +43,7 @@ if (sliderImage && prevBtn && nextBtn && chooseBtn) {
 }
 
 // PLAY SELECTED SONG
-
 const audioPlayer = document.getElementById("selected-song");
-
 if (audioPlayer) {
   const selectedSong = localStorage.getItem("selectedSong");
 
@@ -61,7 +57,7 @@ if (audioPlayer) {
 }
 
 
-// Typewriter Effect
+  // Typewriter Effect
 if (document.getElementById("title")) {
 const dialogue = [
   {
@@ -98,6 +94,7 @@ let itemIndex = 0;
 let charIndex = 0;
 
 function typeWriter() {
+
   if (itemIndex >= dialogue.length) {
   document.getElementById("yes").classList.add("show");
   return;}
@@ -115,4 +112,78 @@ function typeWriter() {
     setTimeout(typeWriter, 300);}}
 
   typeWriter();
-  }
+}
+
+
+
+const square = document.querySelector(".square");
+const triangle = document.querySelector(".triangle");
+
+// Main animation timeline (plays only once)
+const tl = gsap.timeline();
+
+// 1. Square walks toward the triangle
+
+tl.to(square, {
+  x: 100,
+  y: -15,
+  duration: 0.6,
+  ease: "power1.inOut"
+});
+
+tl.to(square, {
+  y: 0,
+  duration: 0.4,
+  ease: "power1.inOut"
+});
+
+tl.to(square, {
+  x: 200,
+  y: -15,
+  duration: 0.6,
+  ease: "power1.inOut"
+});
+
+tl.to(square, {
+  y: 0,
+  duration: 0.4,
+  ease: "power1.inOut"
+});
+
+// 2. Triangle enters from off screen
+
+tl.to(triangle, {
+  left: "65%",
+  duration: 1.2,
+  ease: "power2.out"
+}, "-=0.5");
+
+// 3. Square approaches triangle
+
+tl.to(square, {
+  x: 300,
+  duration: 0.8,
+  ease: "power2.inOut"
+});
+
+// 4. Square changes from red to yellow
+
+tl.to(square, {
+  backgroundColor: "yellow",
+  duration: 0.5
+});
+
+// 5. Square keeps bouncing and rotating forever
+
+tl.call(() => {
+  gsap.to(square, {
+    y: -100,
+    rotation: "+=180",
+    duration: 0.5,
+    ease: "power2.out",
+    repeat: -1,
+    yoyo: true
+  });
+});
+
+  
