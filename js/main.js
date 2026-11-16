@@ -1,15 +1,19 @@
 const songs = [
   {
-    image: "./img/blue.png",
-    song: "./song/Song1.mp3"
+    image: "./img/song1.png",
+    song: "./song/georgemicheal.mp3"
   },
   {
-    image: "./img/green.png",
-    song: "./song/Song2.mp3"
+    image: "./img/song2.png",
+    song: "./song/usher.mp3"
   },
   {
-    image: "./img/red.png",
-    song: "./song/Song3.mp3"
+    image: "./img/song3.png",
+    song: "./song/edsherean.mp3"
+  },
+  {
+    image: "./img/song4.png",
+    song: "./song/tayswift.mp3"
   }
 ];
 let currentIndex = 0;
@@ -114,76 +118,67 @@ function typeWriter() {
   typeWriter();
 }
 
-
-
-const square = document.querySelector(".square");
-const triangle = document.querySelector(".triangle");
-
-// Main animation timeline (plays only once)
-const tl = gsap.timeline();
-
-// 1. Square walks toward the triangle
-
-tl.to(square, {
-  x: 100,
-  y: -15,
-  duration: 0.6,
-  ease: "power1.inOut"
+gsap.set(".violin-img", {
+  x: 480,
+  y: 90,
+  scaleX: 1
 });
 
-tl.to(square, {
-  y: 0,
-  duration: 0.4,
-  ease: "power1.inOut"
-});
+gsap.timeline({ repeat: -1 })
+  // Slide right
+  .to(".violin-img", {
+    x: 700,
+    duration: 2,
+    ease: "sine.inOut"
+  })
 
-tl.to(square, {
-  x: 200,
-  y: -15,
-  duration: 0.6,
-  ease: "power1.inOut"
-});
+  // Flip to face left
+  .to(".violin-img", {
+    scaleX: -1,
+    duration: 0.2,
+    ease: "power2.inOut"
+  })
 
-tl.to(square, {
-  y: 0,
-  duration: 0.4,
-  ease: "power1.inOut"
-});
+  // Slide left
+  .to(".violin-img", {
+    x: 480,
+    duration: 2,
+    ease: "sine.inOut"
+  })
 
-// 2. Triangle enters from off screen
-
-tl.to(triangle, {
-  left: "65%",
-  duration: 1.2,
-  ease: "power2.out"
-}, "-=0.5");
-
-// 3. Square approaches triangle
-
-tl.to(square, {
-  x: 300,
-  duration: 0.8,
-  ease: "power2.inOut"
-});
-
-// 4. Square changes from red to yellow
-
-tl.to(square, {
-  backgroundColor: "yellow",
-  duration: 0.5
-});
-
-// 5. Square keeps bouncing and rotating forever
-
-tl.call(() => {
-  gsap.to(square, {
-    y: -100,
-    rotation: "+=180",
-    duration: 0.5,
-    ease: "power2.out",
-    repeat: -1,
-    yoyo: true
+  // Flip to face right
+  .to(".violin-img", {
+    scaleX: 1,
+    duration: 0.2,
+    ease: "power2.inOut"
   });
-});
+
 
   
+  // VIOLIN IMAGE CROSSFADE
+const images = gsap.utils.toArray(".violin-img");
+
+gsap.set(images, { opacity: 0 });
+gsap.set(images[0], { opacity: 1 });
+
+const imageTimeline = gsap.timeline({
+  repeat: -1
+});
+
+images.forEach((img, index) => {
+  const next = images[(index + 1) % images.length];
+
+  imageTimeline.to({}, { duration: 3 });
+
+  imageTimeline.to(img, {
+    opacity: 0,
+    duration: 1.5,
+    ease: "power2.inOut"
+  });
+
+  imageTimeline.to(next, {
+    opacity: 1,
+    duration: 1.5,
+    ease: "power2.inOut"
+  }, "<");
+});

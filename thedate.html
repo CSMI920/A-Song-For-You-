@@ -13,7 +13,7 @@
   <meta property="og:image" content="">
 
   <link rel="manifest" href="site.webmanifest">
-  <link rel="icon" href="icon.png">
+  <link rel="icon" href="./img/sun.png">
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
@@ -23,15 +23,20 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
+<body class="grassy-bg">
   <audio class="songplayer" id="selected-song" controls></audio>
 
-  <div class="scene">
-    <div class="square"></div>
-    <div class="triangle"></div>
-  </div>
+<div class="date-stack">
+  <img class="picnic-img" src="./img/picnic.png" alt="">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <img class="violin-img" src="./img/pose1.png" alt="">
+  <img class="violin-img" src="./img/pose2.png" alt="">
+  <img class="violin-img" src="./img/pose3.png" alt="">
+
+  <img class="grass-img" src="./img/grass.png" alt="">
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
   <script src="./js/main.js"></script>
 </body>
 
