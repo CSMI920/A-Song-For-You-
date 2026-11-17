@@ -16,9 +16,12 @@ background: #b64040;}
 
 .grassy-bg{
 background: #99ccff;
-background: linear-gradient(180deg, #99ccff 1%, #9ec2e7 21%, #edf6ff 56%, #e7f2e7 64%, rgba(216, 231, 165, 1) 73%, #c3cd95 82%, #726658 100%);
+background: linear-gradient(180deg,rgba(153, 204, 255, 1) 1%, rgba(158, 194, 231, 1) 21%, rgba(237, 246, 255, 1) 56%, rgba(231, 242, 231, 1) 64%, rgba(216, 231, 165, 1) 73%, rgba(195, 205, 149, 1) 82%, rgba(205, 190, 149, 1) 99%);;
     background-repeat: no-repeat;
     background-attachment: fixed;}
+
+.last-button{
+transform: translateY(750px) translateX(400px);}
 
 
 
@@ -28,7 +31,7 @@ background: linear-gradient(180deg, #99ccff 1%, #9ec2e7 21%, #edf6ff 56%, #e7f2e
     animation: buttonFadeIn 1.5s ease forwards;
 
     background-color: #ffc869;
-    color: #9b825e;
+    color: #f5f1e9;
     border: none;
     padding: 20px 40px;
     font-size: 20px;
@@ -39,8 +42,7 @@ background: linear-gradient(180deg, #99ccff 1%, #9ec2e7 21%, #edf6ff 56%, #e7f2e
 
 .yellow-button:hover{
     background-color: #f4b84f;
-    padding: 20px 46px;
-}
+    padding: 20px 46px;}
 
 
 /* Index Css */
@@ -199,7 +201,7 @@ background: linear-gradient(180deg, #99ccff 1%, #9ec2e7 21%, #edf6ff 56%, #e7f2e
 
 .violin-img{
     position: absolute;
-    max-width: 40%;
+    max-width: 60%;
     z-index: 2;
     opacity: 0;}
 

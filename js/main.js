@@ -66,34 +66,30 @@ if (document.getElementById("title")) {
 const dialogue = [
   {
     id: "title",
-    text: "Doxie loves to play the violin..."
+    text: "Meet Jamiel & Victoria!"
   },
   {
     id: "paragraph1",
-    text: "She especially loves to play for her boyfriend Dobber!"
-  },
-  {
-    id: "paragraph2",
-    text: "Tomorrow, it's their one-year anniversary. So Doxie is preparing a special song for Dobber."
+    text: "They'll be celebrating their 1 year anniversary soon!"
   },
   {
     id: "subtitle",
-    text: "But Doxie has a huge problem..."
+    text: "But Jamiel has a huge problem..."
+  },
+  {
+    id: "paragraph2",
+    text: "He can't decide what song he wants to play for Victoria on his violin."
   },
   {
     id: "paragraph3",
-    text: "She can't decide what song she wants to play for Dobber on her violin."
+    text: "\"There's just too many love songs!\" he says. \"Every love song reminds me of Victoria!\""
   },
   {
     id: "paragraph4",
-    text: "\"There's just too many love songs!\" she says. \"Every love song reminds me of Dobber.\""
-  },
-  {
-    id: "paragraph5",
-    text: "Will you help Doxie pick a song to play?"}];
+    text: "Will you help Jamiel pick a song to play?"}];
 
 
-    const speed = 10; //change this to 80 wbefore submittting!
+    const speed = 20; //change this to 80 wbefore submittting!
 let itemIndex = 0;
 let charIndex = 0;
 
@@ -118,67 +114,23 @@ function typeWriter() {
   typeWriter();
 }
 
-gsap.set(".violin-img", {
-  x: 480,
-  y: 90,
-  scaleX: 1
-});
+gsap.set(".violin-img", { x: 400, y: 90, scaleX: 1 });
 
 gsap.timeline({ repeat: -1 })
-  // Slide right
-  .to(".violin-img", {
-    x: 700,
-    duration: 2,
-    ease: "sine.inOut"
-  })
+  .to(".violin-img", { x: 600, duration: 2, ease: "sine.inOut" })
+  .to(".violin-img", { scaleX: -1, duration: 1, ease: "power2.inOut" })
+  .to(".violin-img", { x: 400, duration: 2, ease: "sine.inOut" })
+  .to(".violin-img", { scaleX: 1, duration: 1, ease: "power2.inOut" });
 
-  // Flip to face left
-  .to(".violin-img", {
-    scaleX: -1,
-    duration: 0.2,
-    ease: "power2.inOut"
-  })
-
-  // Slide left
-  .to(".violin-img", {
-    x: 480,
-    duration: 2,
-    ease: "sine.inOut"
-  })
-
-  // Flip to face right
-  .to(".violin-img", {
-    scaleX: 1,
-    duration: 0.2,
-    ease: "power2.inOut"
-  });
-
-
-  
-  // VIOLIN IMAGE CROSSFADE
+// VIOLIN IMAGE CROSSFADE
 const images = gsap.utils.toArray(".violin-img");
-
 gsap.set(images, { opacity: 0 });
 gsap.set(images[0], { opacity: 1 });
 
-const imageTimeline = gsap.timeline({
-  repeat: -1
-});
-
+const imageTimeline = gsap.timeline({ repeat: -1 });
 images.forEach((img, index) => {
   const next = images[(index + 1) % images.length];
-
   imageTimeline.to({}, { duration: 3 });
-
-  imageTimeline.to(img, {
-    opacity: 0,
-    duration: 1.5,
-    ease: "power2.inOut"
-  });
-
-  imageTimeline.to(next, {
-    opacity: 1,
-    duration: 1.5,
-    ease: "power2.inOut"
-  }, "<");
+  imageTimeline.to(img, { opacity: 0, duration: 1.5, ease: "power2.inOut" });
+  imageTimeline.to(next, { opacity: 1, duration: 1.5, ease: "power2.inOut" }, "<");
 });
